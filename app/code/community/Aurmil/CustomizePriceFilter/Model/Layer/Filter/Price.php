@@ -152,4 +152,34 @@ extends Mage_Catalog_Model_Layer_Filter_Price
             return Mage::helper('catalog')->__('%s - %s', $formattedFromPrice, $store->formatPrice($toPrice));
         }
     }
+    
+	// @michelem09 For compatibility with Magento 1.5.*
+    public function apply(Zend_Controller_Request_Abstract $request, $filterBlock)
+    {
+        /**
+         * Filter must be string: $index,$range
+         */
+        $filter = $request->getParam($this->getRequestVar());
+
+        if (!$filter) {
+            return $this;
+        }
+
+        $filter = explode('-', $filter);
+        if (count($filter) != 2) {
+            return $this;
+        }
+
+        list($fromPrice, $toPrice) = $filter;
+
+        if (((int)$fromPrice && (int)$toPrice) || (!$fromPrice && (int)$toPrice) || ((int)$fromPrice && !$toPrice)) {
+            $this->_applyToCollection($fromPrice, $toPrice);
+            $this->getLayer()->getState()->addFilter(
+                $this->_createItem($this->_renderRangeLabel($fromPrice, $toPrice), $filter)
+            );
+
+            $this->_items = array();
+        }
+        return $this;
+    }
 }

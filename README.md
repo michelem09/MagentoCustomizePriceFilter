@@ -1,5 +1,8 @@
 # Magento - Customize Price Filter extension
 
+## Forked by @michelem09
+This is a fork to give compatibility versus Magento 1.5.1.0 too.
+
 ## Overview
 Magento is able to display price ranges in the layered navigation. It offers 3 ways to calculate price step. But none of them allows to specify exactly the price ranges you want to see.
 
@@ -8,7 +11,8 @@ Another point is that Magento subtracts 0.01 to the highest value of each price 
 This extension allows you to set the exact price ranges you need and to disable subtraction of 0.01.
 
 ## Compatibility
-Tested on Magento CE 1.6.2.0 and 1.7.0.2
+Original version tested on Magento CE 1.6.2.0 and 1.7.0.2
+Forked version tested on Magento CE 1.5.1.0
 
 ## Notes
 * Free and open source

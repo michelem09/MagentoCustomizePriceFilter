@@ -13,6 +13,7 @@
             <catalog>
                 <rewrite>
                     <layer_filter_price>Aurmil_CustomizePriceFilter_Model_Layer_Filter_Price</layer_filter_price>
+                    <resource_eav_mysql4_layer_filter_price>Aurmil_CustomizePriceFilter_Model_Resource_Eav_Mysql4_Layer_Filter_Price</resource_eav_mysql4_layer_filter_price>
                 </rewrite>
             </catalog>
         </models>
